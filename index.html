@@ -19,7 +19,7 @@
        var callback = function(response) {
          console.log(response);
          if (response.status === 'connected') {
-           document.querySelector('#authBtn').value = 'Lougout';
+           document.querySelector('#authBtn').value = 'Logout';
          } else {
            document.querySelector('#authBtn').value = 'Login';
            }
@@ -38,7 +38,21 @@
     </script>
 </head>
 <body>
-  <input type="button" id="authBtn" value="checking...">
+  <input type="button" id="authBtn" value="checking..." onclick="
+      if(this.value === 'Login'){
+        // now Logout
+        FB.login(function(res)){
+          console.log('login =>', res){
+
+        });
+      } else {
+        // now Login
+        FB.logout(function(res)){
+          console.log('logout =>', res){
+
+        });
+      }
+  ">
   <h1><a href="index.html">WEB</a></h1>
     <div id="grid">
       <ol>
